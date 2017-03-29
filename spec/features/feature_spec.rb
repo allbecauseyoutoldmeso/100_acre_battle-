@@ -1,10 +1,13 @@
 describe Battle do
 
-  feature 'Homepage' do
-    scenario 'says "Testing infrastructure working"' do
+  feature 'Player details' do
+    scenario 'entering names' do
       visit('/')
-      expect(page).to have_content("Testing infrastructure working")
-    end
+      fill_in :player_1_name, with: 'Emily'
+      fill_in :player_2_name, with: 'Alice'
+      click_button 'Submit'
+      expect(page).to have_content 'Emily vs. Alice'
+      end
 
 
 
