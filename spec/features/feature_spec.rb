@@ -1,17 +1,20 @@
-describe Battle do
-
-  feature 'Player details' do
-    scenario 'entering names' do
-      sign_in_and_play
-      expect(page).to have_content 'Emily vs. Alice'
-    end
+feature 'Battle' do
+# capybara
+  before do
+    sign_in_and_play
   end
 
-  feature 'Player hit points' do
-    scenario 'view hit points' do
-      sign_in_and_play
+  scenario 'Entering player details' do
+      expect(page).to have_content 'Emily vs. Alice'
+  end
+
+  scenario 'View player hit points' do
       expect(page).to have_content 'Emily: 10HP'
-    end
+  end
+
+  scenario 'Attack Player 2' do
+      click_link 'Attack'
+      expect(page).to have_content 'Emily attacked Alice'
   end
 
 end
