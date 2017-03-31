@@ -20,8 +20,13 @@ class Game
     self.players = [player_2, player_1]
   end
 
+  def finish?
+    player_1.hp <= 1 || player_2.hp <= 1
+  end
+
   private
 
   attr_writer :players
+
 
 end

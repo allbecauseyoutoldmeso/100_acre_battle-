@@ -34,4 +34,12 @@ feature 'Battle' do
     click_button 'Damage review'
     expect(page).to have_content 'Emily: 10HP Jessica: 8HP'
   end
+
+  scenario 'Finishes game with HP is 0' do
+    9.times do
+      click_link 'Attack'
+      click_button 'Revenge!'
+    end
+    expect(page).to have_content 'Emily has won!'
+  end
 end

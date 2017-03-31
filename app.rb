@@ -24,20 +24,48 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
+  # get '/finish' do
+  #   @game = $game
+  #   if @game.finish?
+  #     redirect to('/win')
+  #   else
+  #     redirect to('/attack')
+  #   end
+  # end
+
   get '/attack' do
     @game = $game
-    @game.attack(@game.player_2)
-    erb(:attack)
+    # if @game.finish?
+    #   redirect to('/win')
+    #     else
+          @game.attack(@game.player_2)
+          erb(:attack)
+        # end
+  end
+
+  get '/win' do
+    @game = $game
+    erb(:win)
   end
 
   get '/switch' do
     @game = $game
-    @game.switch_player
-    redirect to('/play')
+    if @game.finish?
+      redirect to('/win')
+    else
+      @game.switch_player
+      redirect to('/play')
+    end
   end
 
   get '/damage' do
     @game = $game
     erb(:damage)
   end
+
+  get '/prize' do
+    @game = $game
+    erb(:prize)
+  end
+  
 end
