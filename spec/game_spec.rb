@@ -12,17 +12,23 @@ require 'game'
       end
     end
 
-    describe '#switch_player' do
-      it 'switches the players around' do
-        game.switch_player
-        expect(game.player_1).to eq player_2
-      end
-    end
-
     describe '#finish?' do
       it 'finishes the game' do
         game.finish?
         expect(game).to be_finish
+      end
+    end
+
+    describe '#current_turn' do
+      it 'returns the player whose turn it is' do
+        expect(game.current_turn).to eq player_1
+      end
+    end
+
+    describe '#switch_turn' do
+      it 'switches the turn' do
+        game.switch_turn
+        expect(game.current_turn).to eq player_2
       end
     end
 

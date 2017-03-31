@@ -26,7 +26,7 @@ feature 'Battle' do
   scenario 'Player 2 has a turn' do
     click_link 'Attack'
     click_button 'Revenge!'
-    expect(page).to have_content 'Jessica vs. Emily'
+    expect(page).to have_content 'Emily vs. Jessica'
   end
 
   scenario 'Viewing hit points after attack' do
@@ -40,6 +40,9 @@ feature 'Battle' do
       click_link 'Attack'
       click_button 'Revenge!'
     end
-    expect(page).to have_content 'Emily has won!'
+      click_link 'Attack'
+    expect(page).to have_content 'Jessica has won!'
   end
+
+
 end

@@ -1,6 +1,6 @@
-<%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+<%= @game.current_turn.name %> attacked <%= @game.opponent.name %>
 
-<p><%= @game.player_2.name %>: <%= @game.player_2.hp %>HP</p>
+<p><%= @game.opponent.name %>: <%= @game.player_2.hp %>HP</p>
 
 
 <form action = "/switch" >

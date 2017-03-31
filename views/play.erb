@@ -1,6 +1,8 @@
+<%= @game.current_turn.name %>'s turn
+
 <%= @game.player_1.name %> vs. <%= @game.player_2.name %>
 
 <p><%= @game.player_1.name %>: <%= @game.player_1.hp %>HP
 <p><%= @game.player_2.name %>: <%= @game.player_2.hp %>HP
 
-<a href="/attack">Attack</a>
+<a href="/finish">Attack</a>

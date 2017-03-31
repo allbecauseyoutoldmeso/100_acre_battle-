@@ -3,8 +3,6 @@ require './lib/player'
 require './lib/game'
 
 class Battle < Sinatra::Base
-  set :sessions, true
-  enable :sessions
 
   get '/' do
     erb(:index)
@@ -24,23 +22,19 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
-  # get '/finish' do
-  #   @game = $game
-  #   if @game.finish?
-  #     redirect to('/win')
-  #   else
-  #     redirect to('/attack')
-  #   end
-  # end
+  get '/finish' do
+    @game = $game
+    if @game.finish?
+      redirect to('/win')
+    else
+      redirect to('/attack')
+    end
+  end
 
   get '/attack' do
     @game = $game
-    # if @game.finish?
-    #   redirect to('/win')
-    #     else
-          @game.attack(@game.player_2)
-          erb(:attack)
-        # end
+    @game.attack(@game.opponent)
+    erb(:attack)
   end
 
   get '/win' do
@@ -50,12 +44,8 @@ class Battle < Sinatra::Base
 
   get '/switch' do
     @game = $game
-    if @game.finish?
-      redirect to('/win')
-    else
-      @game.switch_player
+      @game.switch_turn
       redirect to('/play')
-    end
   end
 
   get '/damage' do
@@ -67,5 +57,5 @@ class Battle < Sinatra::Base
     @game = $game
     erb(:prize)
   end
-  
+
 end
