@@ -1,0 +1,11 @@
+<h> Damage review </h>
+
+<p><%= @game.player_1.name %>: <%= @game.player_1.hp %>HP </p>
+
+<p> <%= @game.player_2.name %>: <%= @game.player_2.hp %>HP </p>
+
+<p> Return to game </p>
+
+<form action = "/attack" >
+  <input type = "submit" value = "Back to game!" />
+</form>

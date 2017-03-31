@@ -28,4 +28,10 @@ feature 'Battle' do
     click_button 'Revenge!'
     expect(page).to have_content 'Jessica vs. Emily'
   end
+
+  scenario 'Viewing hit points after attack' do
+    click_link 'Attack'
+    click_button 'Damage review'
+    expect(page).to have_content 'Emily: 10HP Jessica: 8HP'
+  end
 end

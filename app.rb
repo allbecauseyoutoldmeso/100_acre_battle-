@@ -36,4 +36,8 @@ class Battle < Sinatra::Base
     redirect to('/play')
   end
 
+  get '/damage' do
+    @game = $game
+    erb(:damage)
+  end
 end
