@@ -12,4 +12,11 @@ require 'game'
       end
     end
 
+    describe '#switch_player' do
+      it 'switches the players around' do
+        game.switch_player
+        expect(game.player_1).to eq player_2
+      end
+    end
+
   end

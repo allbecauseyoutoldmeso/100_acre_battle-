@@ -16,4 +16,12 @@ class Game
     player.receive_damage
   end
 
+  def switch_player
+    self.players = [player_2, player_1]
+  end
+
+  private
+
+  attr_writer :players
+
 end

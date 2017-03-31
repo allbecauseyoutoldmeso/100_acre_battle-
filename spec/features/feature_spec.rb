@@ -22,4 +22,10 @@ feature 'Battle' do
     expect(page).not_to have_content 'Jessica: 10HP'
     expect(page).to have_content 'Jessica: 8HP'
   end
+
+  scenario 'Player 2 has a turn' do
+    click_link 'Attack'
+    click_button 'Revenge!'
+    expect(page).to have_content 'Jessica vs. Emily'
+  end
 end
