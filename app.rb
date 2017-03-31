@@ -13,17 +13,21 @@ class Battle < Sinatra::Base
     # require 'pry'; binding.pry
     player_1 = Player.new(params[:player_1])
     player_2 = Player.new(params[:player_2])
-    $game = Game.new(player_1, player_2)
+    @game = Game.create(player_1, player_2)
     redirect to('/play')
   end
 
+  before do
+    @game = Game.instance
+  end
+
   get '/play' do
-    @game = $game
     erb(:play)
   end
 
-  get '/finish' do
-    @game = $game
+  post '/food' do
+    $food = params[:food]
+    @game.attack(@game.opponent)
     if @game.finish?
       redirect to('/win')
     else
@@ -32,29 +36,24 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @game = $game
     @game.attack(@game.opponent)
     erb(:attack)
   end
 
   get '/win' do
-    @game = $game
     erb(:win)
   end
 
   get '/switch' do
-    @game = $game
       @game.switch_turn
       redirect to('/play')
   end
 
   get '/damage' do
-    @game = $game
     erb(:damage)
   end
 
   get '/prize' do
-    @game = $game
     erb(:prize)
   end
 

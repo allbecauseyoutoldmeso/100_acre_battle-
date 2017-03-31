@@ -1,4 +1,12 @@
 class Game
+  # create and instance are CLASS methods
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
 
   attr_reader :current_turn, :opponent
 
@@ -7,6 +15,7 @@ class Game
     @current_turn = player_1
     @opponent = player_2
   end
+
 
   def player_1
     @players.first

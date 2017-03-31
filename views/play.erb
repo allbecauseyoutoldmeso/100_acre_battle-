@@ -1,8 +1,17 @@
-<%= @game.current_turn.name %>'s turn
+<h><%= @game.current_turn.name %>'s turn </h>
 
-<%= @game.player_1.name %> vs. <%= @game.player_2.name %>
+<p><%= @game.player_1.name %> vs. <%= @game.player_2.name %></p>
 
 <p><%= @game.player_1.name %>: <%= @game.player_1.hp %>HP
 <p><%= @game.player_2.name %>: <%= @game.player_2.hp %>HP
 
-<a href="/finish">Attack</a>
+<form action="/food" method="post">
+  <label for="food choice">Food</label>
+    <select name="food" id="action">
+      <option value="Honey"> Honey </option>
+      <option value="Cake"> Cake </option>
+      <option value="Chestnuts"> Chestnuts </option>
+      <option value="Thistles"> Thistles </option>
+  </select>
+  <button type="submit" value="submit">Throw!</button>
+</form>

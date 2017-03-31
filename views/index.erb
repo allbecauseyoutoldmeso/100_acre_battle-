@@ -1,15 +1,21 @@
-<h1> BATTLE </h1>
-<h2> Sign in to play </h2>
+<h1> FOOD FIGHT IN THE 100 ACRE WOOD </h1>
+<h2> Choose your character </h2>
 
 
 <form action="/names" method="post">
-  <label for="player_1">
-    Player 1 name:
-    <input type="text" name="player_1">
-  </label>
-  <label for="player_2">
-    Player 2 name:
-    <input type="text" name="player_2">
-</label>
-  <input type="submit" value="Submit">
+  <label for="character choice">Player 1:</label>
+    <select name="player_1" id="action">
+      <option value="Winnie"> Winnie </option>
+      <option value="Piglet"> Piglet </option>
+      <option value="Tigger"> Tigger </option>
+      <option value="Eyore"> Eyore </option>
+    </select>
+  <label for=" second character choice">Player 2:</label>
+    <select name="player_2" id="action">
+      <option value="Kanga"> Kanga </option>
+      <option value="Roo"> Roo </option>
+      <option value="Owl"> Owl </option>
+      <option value="Christopher Robin"> Christopher Robin </option>
+    </select>
+      <button type="submit" value="submit">Choose</button>
 </form>
